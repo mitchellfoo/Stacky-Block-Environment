@@ -9,6 +9,8 @@ using static UnityEditor.PlayerSettings;
 
 public class BuilderAgent : Agent
 {
+    public enum BlockType { Stack, Compact };
+
     [Header("Agent Variables")]
     [Range(0.0f, 50.0f)]
     public int goalHeight = 25;
@@ -21,7 +23,9 @@ public class BuilderAgent : Agent
     public int gridDim = 5;
     public GameObject blockParent;
 
-    [Header("Possible Blocks")]
+    [Header("Blocks Variables")]
+    public BlockType blockType;
+    public float blockGravity = 9.8f;
     [Tooltip("List of Block Prefabs")]
     public List<GameObject> blocks = new();
 
@@ -113,8 +117,6 @@ public class BuilderAgent : Agent
         sensor.AddObservation(heightCast.heights);
 
         // 26 total observations
-        Debug.Log("Sensor obs: " + sensor.ToString());
-
     }
 
     public override void Heuristic(in ActionBuffers actionsOutBuffer)
@@ -134,8 +136,6 @@ public class BuilderAgent : Agent
 
         actionsOut[0] = row;
         actionsOut[1] = col;
-
-        Debug.Log("Heuristic Action: " + actionsOut.ToString());
     }
 
     private void DropBlock(int row, int col)
@@ -151,7 +151,10 @@ public class BuilderAgent : Agent
 
         // Instantiate block
         Vector3 pos = new(row, dropBlockHeight, col);
-        Instantiate(block, pos, Quaternion.identity, blockParent.transform);
+        GameObject newBlock = Instantiate(block, pos, Quaternion.identity, blockParent.transform);
+        Block currBlock = newBlock.transform.GetComponent<Block>();
+        currBlock.blockType = (Block.BlockType)blockType;
+        currBlock.gravity = blockGravity;
     }
 
     public void AddDropBlockReward()

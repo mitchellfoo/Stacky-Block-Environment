@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    [Header("Block Variables")]
     public float gravity = 9.8f;
+
+    public enum BlockType { Stack, Compact };
+    public BlockType blockType;
 
     private Rigidbody rb;
 
@@ -20,16 +24,31 @@ public class Block : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        // Initial ground contact behavior
         if (collision.gameObject.CompareTag("Ground"))
         {
             gameObject.tag = collision.gameObject.tag;
             gameObject.layer = LayerMask.NameToLayer("Default");
 
-            rb.constraints = RigidbodyConstraints.None;
-            //rb.constraints = RigidbodyConstraints.FreezeRotationY
+            // Physics based on block type
+            if (blockType == BlockType.Stack) { rb.constraints = RigidbodyConstraints.None; }
+            if (blockType == BlockType.Compact)
+            {
+                rb.constraints = RigidbodyConstraints.FreezeAll;
+                gravity = 0f;
+
+                // round to int position
+                Vector3 tmp = transform.position;
+                tmp.y = Mathf.Round(tmp.y);
+                transform.position = tmp;
+            }
         }
 
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        // General collision behavior
+        if (blockType == BlockType.Stack)
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
     }
 }
