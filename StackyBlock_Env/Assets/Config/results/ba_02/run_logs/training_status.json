@@ -1,0 +1,38 @@
+{
+    "BuilderAgent": {
+        "checkpoints": [
+            {
+                "steps": 499984,
+                "file_path": "results\\ba_02\\BuilderAgent\\BuilderAgent-499984.onnx",
+                "reward": null,
+                "creation_time": 1667777218.4265957,
+                "auxillary_file_paths": [
+                    "results\\ba_02\\BuilderAgent\\BuilderAgent-499984.pt"
+                ]
+            },
+            {
+                "steps": 763152,
+                "file_path": "results\\ba_02\\BuilderAgent\\BuilderAgent-763152.onnx",
+                "reward": null,
+                "creation_time": 1667780540.905456,
+                "auxillary_file_paths": [
+                    "results\\ba_02\\BuilderAgent\\BuilderAgent-763152.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 763152,
+            "file_path": "results\\ba_02\\BuilderAgent.onnx",
+            "reward": null,
+            "creation_time": 1667780540.905456,
+            "auxillary_file_paths": [
+                "results\\ba_02\\BuilderAgent\\BuilderAgent-763152.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

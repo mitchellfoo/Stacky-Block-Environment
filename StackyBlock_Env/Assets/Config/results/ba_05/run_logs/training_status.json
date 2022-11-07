@@ -1,0 +1,29 @@
+{
+    "BuilderAgent": {
+        "checkpoints": [
+            {
+                "steps": 10432,
+                "file_path": "results\\ba_05\\BuilderAgent\\BuilderAgent-10432.onnx",
+                "reward": null,
+                "creation_time": 1667789854.1812227,
+                "auxillary_file_paths": [
+                    "results\\ba_05\\BuilderAgent\\BuilderAgent-10432.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 10432,
+            "file_path": "results\\ba_05\\BuilderAgent.onnx",
+            "reward": null,
+            "creation_time": 1667789854.1812227,
+            "auxillary_file_paths": [
+                "results\\ba_05\\BuilderAgent\\BuilderAgent-10432.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}
