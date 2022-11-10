@@ -11,6 +11,7 @@ public class Block : MonoBehaviour
     public BlockType blockType;
 
     private Rigidbody rb;
+    private bool collided = false;
 
     private void Awake()
     {
@@ -37,10 +38,16 @@ public class Block : MonoBehaviour
                 rb.constraints = RigidbodyConstraints.FreezeAll;
                 gravity = 0f;
 
-                // round to int position
-                Vector3 tmp = transform.position;
-                tmp.y = Mathf.Round(tmp.y);
-                transform.position = tmp;
+                if (!collided)
+                {
+                    collided = true;
+
+                    // round to int position
+                    Vector3 contact = collision.contacts[0].point;
+                    Vector3 tmp = transform.position;
+                    tmp.y = Mathf.Round(contact.y);
+                    transform.position = tmp;
+                }
             }
         }
 

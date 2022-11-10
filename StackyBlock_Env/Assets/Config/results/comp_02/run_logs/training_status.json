@@ -1,0 +1,29 @@
+{
+    "CompactAgent": {
+        "checkpoints": [
+            {
+                "steps": 4297,
+                "file_path": "results\\comp_02\\CompactAgent\\CompactAgent-4297.onnx",
+                "reward": 14.982558139534884,
+                "creation_time": 1667863759.8290472,
+                "auxillary_file_paths": [
+                    "results\\comp_02\\CompactAgent\\CompactAgent-4297.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 4297,
+            "file_path": "results\\comp_02\\CompactAgent.onnx",
+            "reward": 14.982558139534884,
+            "creation_time": 1667863759.8290472,
+            "auxillary_file_paths": [
+                "results\\comp_02\\CompactAgent\\CompactAgent-4297.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

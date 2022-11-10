@@ -44,6 +44,15 @@ public class HeightCast : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            agent.AddVictoryReward();
+            agent.EndEpisode();
+        }
+    }
+
     public void CheckHighestHeight()
     {
         // Save current highest

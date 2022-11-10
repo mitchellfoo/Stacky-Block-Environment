@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/DensityTraining.unity
+    path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BalanceTraining.unity
     guid: 1d6beffc71e2af64db97341edf56392d
+  - enabled: 1
+    path: Assets/Scenes/DensityTraining.unity
+    guid: 13b1d289ce8e64bdbbc5a89c1458bdc8
   m_configObjects: {}

@@ -13,7 +13,7 @@ public class BuilderAgent : Agent
 
     [Header("Agent Variables")]
     [Range(0.0f, 50.0f)]
-    public int goalHeight = 25;
+    public int goalHeight = 10;
     public int dropBlockHeight = 30;
     public int stackSeed = 0;
     public int stackSize = 200;
@@ -31,13 +31,16 @@ public class BuilderAgent : Agent
 
     [Header("Reward Variables")]
     public float victoryReward = 100f;
-    public float dropBlockReward = -1f;
-    public float stepReward = -.1f;
+    public float dropBlockReward = 0f;
+    public float actionReward = 0f;
     public float heightRewardFactor = 1f;
 
     // Tile Stack
     private int[] initialStack;
     private int[] tileStack;
+
+    // Block counting for reward
+    private int blockCounter = 0;
 
     /// <summary>
     /// Init the agent
@@ -49,12 +52,16 @@ public class BuilderAgent : Agent
 
         // Initialize tile stack
         tileStack = new int[stackSize];
-        initialStack = tileStack;
 
         for (int i = 0; i < stackSize; i++)
         {
             tileStack[i] = Random.Range(0, blocks.Count);
         }
+
+        initialStack = (int[])tileStack.Clone();
+
+        // Place the height cast at the right height
+        heightCast.gameObject.transform.localPosition = new(0, goalHeight+10, 0f);
     }
 
     /// <summary>
@@ -69,10 +76,13 @@ public class BuilderAgent : Agent
         }
 
         // Reset tile stack
-        tileStack = initialStack;
+        tileStack = (int[])initialStack.Clone();
 
         // Reset currrent heighest height
         heightCast.highestHeight = 0f;
+
+        // Reset block counter
+        blockCounter = 0;
     }
 
     /// <summary>
@@ -89,15 +99,10 @@ public class BuilderAgent : Agent
         // Don't take actions if frozen
         //if (frozen) return;
 
-        // Penalty for taking a step
-        AddStepReward();
-
         // Get action vector
         ActionSegment<int> vectorAction = actions.DiscreteActions;
 
         // Place from stack given row/col if doing so
-        //if (vectorAction[0] == 1) { DropBlock(vectorAction[1], vectorAction[2]); }
-
         int row = vectorAction[0] + (int)transform.position.x;
         int col = vectorAction[1] + (int)transform.position.z;
 
@@ -109,7 +114,7 @@ public class BuilderAgent : Agent
     /// </summary>
     /// <param name="sensor">Vector sensor</param>
     public override void CollectObservations(VectorSensor sensor)
-    {
+    {   
         // Observe agent's next block to place (1 obs)
         sensor.AddObservation(tileStack[0]);
 
@@ -140,8 +145,11 @@ public class BuilderAgent : Agent
 
     private void DropBlock(int row, int col)
     {
-        // (Negative) reward for taking a step
+        // Rreward for taking a step
         AddStepReward();
+
+        // Check new height
+        heightCast.CheckHighestHeight();
 
         // Get current block from stack;
         GameObject block = blocks[tileStack[0]];
@@ -169,12 +177,8 @@ public class BuilderAgent : Agent
 
     public void AddStepReward()
     {
-        // Deduct a small reward if goal has not been reached
-        if (heightCast.highestHeight < goalHeight) AddReward(stepReward);
-        else EndEpisode();
-
-        // Check new height
-        heightCast.CheckHighestHeight();
+        blockCounter++;
+        AddReward(actionReward * blockCounter);
     }
 
     public void AddHeightReward(float heightDiff)
