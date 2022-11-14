@@ -87,6 +87,8 @@ MonoBehaviour:
   heightCast: {fileID: 0}
   gridDim: 5
   blockParent: {fileID: 0}
+  switchParent: {fileID: 8734335361967387370, guid: 4aa54bca22bb4427c804ad80af1ca5dd,
+    type: 3}
   blockType: 1
   blockGravity: 25
   blocks:
@@ -98,7 +100,7 @@ MonoBehaviour:
   - {fileID: 1757873436489270063, guid: 934beb0236e07fe4aafb45bb78ca78e7, type: 3}
   victoryReward: 100
   dropBlockReward: 1
-  stepReward: 0
+  actionReward: 0
   heightRewardFactor: 1
 --- !u!114 &1258612186219879790
 MonoBehaviour:

@@ -10,6 +10,7 @@ using static UnityEditor.PlayerSettings;
 public class BuilderAgent : Agent
 {
     public enum BlockType { Stack, Compact };
+    public enum ObsType { SwitchGrid, HeightCast };
 
     [Header("Agent Variables")]
     [Range(0.0f, 50.0f)]
@@ -22,6 +23,10 @@ public class BuilderAgent : Agent
     public HeightCast heightCast;
     public int gridDim = 5;
     public GameObject blockParent;
+    public GameObject switchParent;
+    public ObsType obsType;
+
+    private SwitchParent sp;
 
     [Header("Blocks Variables")]
     public BlockType blockType;
@@ -62,6 +67,10 @@ public class BuilderAgent : Agent
 
         // Place the height cast at the right height
         heightCast.gameObject.transform.localPosition = new(0, goalHeight+10, 0f);
+
+        // Initialize switch parent
+        sp = Instantiate(switchParent, transform).GetComponent<SwitchParent>();
+        sp.InitializeSwitches(gridDim, goalHeight);
     }
 
     /// <summary>
@@ -74,6 +83,9 @@ public class BuilderAgent : Agent
         {
             GameObject.Destroy(block.gameObject);
         }
+
+        // Reset switches
+        sp.ResetSwitches();
 
         // Reset tile stack
         tileStack = (int[])initialStack.Clone();
@@ -118,10 +130,14 @@ public class BuilderAgent : Agent
         // Observe agent's next block to place (1 obs)
         sensor.AddObservation(tileStack[0]);
 
-        // Observe the current boared (25 obs)
-        sensor.AddObservation(heightCast.heights);
+        // Observe the current 3d grid space (a lot obs)
+        if (obsType == ObsType.SwitchGrid) sensor.AddObservation(sp.switchStates);
 
-        // 26 total observations
+        // Observe the current board heights (25 obs)
+        if (obsType == ObsType.HeightCast) sensor.AddObservation(heightCast.heights);
+
+        // 1 + obsType total observations
+        /// 251 with current SwitchGrid setup (1 + 5*5*10)
     }
 
     public override void Heuristic(in ActionBuffers actionsOutBuffer)

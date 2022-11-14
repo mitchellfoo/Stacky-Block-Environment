@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.002714504, g: 0.043034054, b: 0.12466498, a: 1}
+  m_IndirectSpecularColor: {r: 0.00268927, g: 0.043129135, b: 0.12460205, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1156,10 +1156,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1391128639010410179, guid: 7c3c348db809dc64696c69b538b036a4,
+        type: 3}
+      propertyPath: goalHeight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391128639010410179, guid: 7c3c348db809dc64696c69b538b036a4,
+        type: 3}
+      propertyPath: blockGravity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391128639010410179, guid: 7c3c348db809dc64696c69b538b036a4,
+        type: 3}
+      propertyPath: dropBlockHeight
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1391128639010410188, guid: 7c3c348db809dc64696c69b538b036a4,
         type: 3}
       propertyPath: m_Model
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391128639010410188, guid: 7c3c348db809dc64696c69b538b036a4,
+        type: 3}
+      propertyPath: m_BehaviorType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391128639010410188, guid: 7c3c348db809dc64696c69b538b036a4,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 251
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391128639010410189, guid: 7c3c348db809dc64696c69b538b036a4,
+        type: 3}
+      propertyPath: DecisionPeriod
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c3c348db809dc64696c69b538b036a4, type: 3}
