@@ -39,6 +39,7 @@ public class BuilderAgent : Agent
     public float dropBlockReward = 0f;
     public float actionReward = 0f;
     public float heightRewardFactor = 1f;
+    public float switchReward = 1f;
 
     // Tile Stack
     private int[] initialStack;
@@ -189,6 +190,11 @@ public class BuilderAgent : Agent
     public void AddVictoryReward()
     {
         AddReward(victoryReward);
+    }
+
+    public void AddSwitchReward(float height)
+    {
+        AddReward(switchReward/height);
     }
 
     public void AddStepReward()

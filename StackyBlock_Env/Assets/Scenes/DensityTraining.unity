@@ -1163,6 +1163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1391128639010410179, guid: 7c3c348db809dc64696c69b538b036a4,
         type: 3}
+      propertyPath: actionReward
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391128639010410179, guid: 7c3c348db809dc64696c69b538b036a4,
+        type: 3}
       propertyPath: blockGravity
       value: 8
       objectReference: {fileID: 0}

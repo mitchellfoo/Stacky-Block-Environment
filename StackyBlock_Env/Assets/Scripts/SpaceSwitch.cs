@@ -12,8 +12,13 @@ public class SpaceSwitch : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground") && !collided)
         {
+            // Update collision
             collided = true;
             transform.parent.GetComponent<SwitchParent>().UpdateSwitch(index);
+
+            // Give reward for covering a switch
+            float height = transform.position.y;
+            transform.parent.parent.GetComponent<BuilderAgent>().AddSwitchReward(height);
         }
     }
 }
