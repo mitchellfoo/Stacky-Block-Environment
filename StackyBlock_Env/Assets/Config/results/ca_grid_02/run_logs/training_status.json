@@ -1,0 +1,65 @@
+{
+    "CompactAgent": {
+        "checkpoints": [
+            {
+                "steps": 3999966,
+                "file_path": "results\\ca_grid_02\\CompactAgent\\CompactAgent-3999966.onnx",
+                "reward": 40.05614224602194,
+                "creation_time": 1668486540.3371177,
+                "auxillary_file_paths": [
+                    "results\\ca_grid_02\\CompactAgent\\CompactAgent-3999966.pt"
+                ]
+            },
+            {
+                "steps": 4499998,
+                "file_path": "results\\ca_grid_02\\CompactAgent\\CompactAgent-4499998.onnx",
+                "reward": 45.03656496320452,
+                "creation_time": 1668496600.9217334,
+                "auxillary_file_paths": [
+                    "results\\ca_grid_02\\CompactAgent\\CompactAgent-4499998.pt"
+                ]
+            },
+            {
+                "steps": 4999979,
+                "file_path": "results\\ca_grid_02\\CompactAgent\\CompactAgent-4999979.onnx",
+                "reward": 42.21084976196289,
+                "creation_time": 1668506770.3618846,
+                "auxillary_file_paths": [
+                    "results\\ca_grid_02\\CompactAgent\\CompactAgent-4999979.pt"
+                ]
+            },
+            {
+                "steps": 5499980,
+                "file_path": "results\\ca_grid_02\\CompactAgent\\CompactAgent-5499980.onnx",
+                "reward": 39.726216933306524,
+                "creation_time": 1668517194.195486,
+                "auxillary_file_paths": [
+                    "results\\ca_grid_02\\CompactAgent\\CompactAgent-5499980.pt"
+                ]
+            },
+            {
+                "steps": 5824462,
+                "file_path": "results\\ca_grid_02\\CompactAgent\\CompactAgent-5824462.onnx",
+                "reward": 34.4764168780783,
+                "creation_time": 1668523791.9648054,
+                "auxillary_file_paths": [
+                    "results\\ca_grid_02\\CompactAgent\\CompactAgent-5824462.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 5824462,
+            "file_path": "results\\ca_grid_02\\CompactAgent.onnx",
+            "reward": 34.4764168780783,
+            "creation_time": 1668523791.9648054,
+            "auxillary_file_paths": [
+                "results\\ca_grid_02\\CompactAgent\\CompactAgent-5824462.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

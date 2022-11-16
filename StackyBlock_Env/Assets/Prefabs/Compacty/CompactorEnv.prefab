@@ -601,7 +601,7 @@ PrefabInstance:
     - target: {fileID: 1258612186219879776, guid: deb79f8c7aedc40f7b8a7c3b9d07e0ce,
         type: 3}
       propertyPath: goalHeight
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1258612186219879776, guid: deb79f8c7aedc40f7b8a7c3b9d07e0ce,
         type: 3}
@@ -616,7 +616,7 @@ PrefabInstance:
     - target: {fileID: 1258612186219879776, guid: deb79f8c7aedc40f7b8a7c3b9d07e0ce,
         type: 3}
       propertyPath: actionReward
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1258612186219879776, guid: deb79f8c7aedc40f7b8a7c3b9d07e0ce,
         type: 3}
@@ -626,12 +626,12 @@ PrefabInstance:
     - target: {fileID: 1258612186219879776, guid: deb79f8c7aedc40f7b8a7c3b9d07e0ce,
         type: 3}
       propertyPath: victoryReward
-      value: -100
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1258612186219879776, guid: deb79f8c7aedc40f7b8a7c3b9d07e0ce,
         type: 3}
       propertyPath: dropBlockHeight
-      value: 25
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1258612186219879776, guid: deb79f8c7aedc40f7b8a7c3b9d07e0ce,
         type: 3}
@@ -641,7 +641,7 @@ PrefabInstance:
     - target: {fileID: 1258612186219879776, guid: deb79f8c7aedc40f7b8a7c3b9d07e0ce,
         type: 3}
       propertyPath: heightRewardFactor
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1258612186219879777, guid: deb79f8c7aedc40f7b8a7c3b9d07e0ce,
         type: 3}
@@ -706,7 +706,7 @@ PrefabInstance:
     - target: {fileID: 1258612186219879790, guid: deb79f8c7aedc40f7b8a7c3b9d07e0ce,
         type: 3}
       propertyPath: DecisionPeriod
-      value: 20
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1258612186219879791, guid: deb79f8c7aedc40f7b8a7c3b9d07e0ce,
         type: 3}
@@ -717,6 +717,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BehaviorType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1258612186219879791, guid: deb79f8c7aedc40f7b8a7c3b9d07e0ce,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 251
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deb79f8c7aedc40f7b8a7c3b9d07e0ce, type: 3}

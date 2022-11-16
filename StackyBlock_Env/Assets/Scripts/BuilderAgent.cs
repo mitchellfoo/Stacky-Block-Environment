@@ -194,7 +194,7 @@ public class BuilderAgent : Agent
 
     public void AddSwitchReward(float height)
     {
-        AddReward(switchReward/height);
+        AddReward(switchReward/(height+1)+0.5f);
     }
 
     public void AddStepReward()

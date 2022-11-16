@@ -7,7 +7,7 @@ public class SwitchParent : MonoBehaviour
     // List to keep track of switches
     public List<float> switchStates = new();
 
-    // Prefavb for a switch
+    // Prefab for a switch
     public GameObject switchPrefab;
 
     public void InitializeSwitches(int gridDim, int height)
@@ -23,8 +23,10 @@ public class SwitchParent : MonoBehaviour
                     switchStates.Add(0);
 
                     // Create new switch prefab
+                    GameObject s = Instantiate(switchPrefab, transform);
                     Vector3 pos = new(j, i, k);
-                    GameObject s = Instantiate(switchPrefab, pos, Quaternion.identity, transform);
+                    s.transform.localPosition= pos;
+
 
                     // Assign switch its index
                     s.GetComponent<SpaceSwitch>().index = count;
@@ -48,7 +50,7 @@ public class SwitchParent : MonoBehaviour
         }
 
         // Reset children
-        foreach (GameObject childSwitch in transform)
+        foreach (Transform childSwitch in transform)
         {
             childSwitch.GetComponent<SpaceSwitch>().collided = false;
         }
